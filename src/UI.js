@@ -38,9 +38,10 @@ const UI = (() => {
       e.target.textContent = "start";
       startSquare = [parseInt(e.target.dataset.x), parseInt(e.target.dataset.y)];
       start = false;
+      e.target.classList.add('gray');
     } else {
       e.target.textContent = "End";
-      console.log(endSquare);
+      e.target.classList.add('gray');
       endSquare = [parseInt(e.target.dataset.x), parseInt(e.target.dataset.y)];
       travail(startSquare, endSquare);
       start = true;
