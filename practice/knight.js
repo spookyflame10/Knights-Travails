@@ -5,8 +5,7 @@ const visited = [...Array(8)].map(() => Array(8).fill(0));
 function knightTravails(visited, row, col, move) {
   if (move == 64) {
     //when moves number are equal to boxes in chessboard
-    console.log(visited);
-    return true;
+    return visited;
   } else {
     for (let i = 0; i < 8; i++) {
       //valuating eight possible steps for each box travelled

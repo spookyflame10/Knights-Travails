@@ -1,10 +1,10 @@
 const Row = [2, 1, -1, -2, -2, -1, 1, 2];
 const Col = [1, 2, 2, 1, -1, -2, -2, -1];
-function Move(current, path){
-    return {0: current,1: [path]};
-}
-function knightMoves(start, end) {
-  queue = [new Move(start, start)];
+// function Move(current, path){
+//     return {0: current,1: [path]};
+// }
+export default function knightMoves(start, end) {
+  let queue = [[start, [start]]];
   while (!queue.length==0) {
     const move = queue.shift();
     for (let i = 0; i < 8; i++) {//evaluating eight possible steps for each box travelled
@@ -15,7 +15,7 @@ function knightMoves(start, end) {
             move[1].push(end);
             return move[1];
         }
-        queue.push(new Move([newMove[0], newMove[1]], [...move[1],newMove]));
+        queue.push([[newMove[0], newMove[1]], [...move[1],newMove]]);
       }
     }
   }
@@ -24,3 +24,4 @@ function knightMoves(start, end) {
 console.log(knightMoves([0, 0], [1, 2]));
 console.log(knightMoves([0,0],[3,3]));
 console.log(knightMoves([3,3],[0,0]));
+console.log(knightMoves([3,3],[4,3]));
